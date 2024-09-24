@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Meme Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: rgb(50, 67, 219);
+            width: 400px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .meme-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .meme-container img {
+            width: 80%;
+            border-radius: 8px;
+        }
+
+        .meme-text {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgb(153, 80, 80);
+            font-size: 1.5em;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .top-text {
+            top: 10px;
+        }
+
+        .bottom-text {
+            bottom: 10px;
+        }
+
+        .text-input {
+            margin-top: 15px;
+        }
+
+        .text-input input {
+            width: 79%;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .text-input button {
+            width: 79%;
+            padding: 10px;
+            font-size: 1em;
+            background-color: #1877f2;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .text-input button:hover {
+            background-color: #145dbf;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Meme Image and Text -->
+        <div class="meme-container">
+            <img id="meme-image" src="download.jpg" alt="Meme Image">
+            <div class="meme-text top-text" id="topText">Top Text</div>
+            <div class="meme-text bottom-text" id="bottomText">Bottom Text</div>
+        </div>
+
+        <!-- Text Input for Meme Text -->
+        <div class="text-input">
+            <input type="text" id="topTextInput" placeholder="Enter top text">
+            <input type="text" id="bottomTextInput" placeholder="Enter bottom text">
+            <button onclick="updateMeme()">Generate Meme</button>
+        </div>
+    </div>
+
+    <script>
+        function updateMeme() {
+            const topText = document.getElementById('topTextInput').value;
+            const bottomText = document.getElementById('bottomTextInput').value;
+            
+            document.getElementById('topText').textContent = topText || 'Top Text';
+            document.getElementById('bottomText').textContent = bottomText || 'Bottom Text';
+        }
+    </script>
+
+</body>
+</html>
